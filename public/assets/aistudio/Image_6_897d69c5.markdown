@@ -1,0 +1,228 @@
+---
+name: Fractal Batik Workstation
+colors:
+  surface: '#0c1322'
+  surface-dim: '#0c1322'
+  surface-bright: '#323949'
+  surface-container-lowest: '#070e1d'
+  surface-container-low: '#141b2b'
+  surface-container: '#191f2f'
+  surface-container-high: '#232a3a'
+  surface-container-highest: '#2e3545'
+  on-surface: '#dce2f7'
+  on-surface-variant: '#d8c3ad'
+  inverse-surface: '#dce2f7'
+  inverse-on-surface: '#293040'
+  outline: '#a08e7a'
+  outline-variant: '#534434'
+  surface-tint: '#ffb95f'
+  primary: '#ffc174'
+  on-primary: '#472a00'
+  primary-container: '#f59e0b'
+  on-primary-container: '#613b00'
+  inverse-primary: '#855300'
+  secondary: '#4edea3'
+  on-secondary: '#003824'
+  secondary-container: '#00a572'
+  on-secondary-container: '#00311f'
+  tertiary: '#54ddfc'
+  on-tertiary: '#003640'
+  tertiary-container: '#29c1df'
+  on-tertiary-container: '#004b58'
+  error: '#ffb4ab'
+  on-error: '#690005'
+  error-container: '#93000a'
+  on-error-container: '#ffdad6'
+  primary-fixed: '#ffddb8'
+  primary-fixed-dim: '#ffb95f'
+  on-primary-fixed: '#2a1700'
+  on-primary-fixed-variant: '#653e00'
+  secondary-fixed: '#6ffbbe'
+  secondary-fixed-dim: '#4edea3'
+  on-secondary-fixed: '#002113'
+  on-secondary-fixed-variant: '#005236'
+  tertiary-fixed: '#acedff'
+  tertiary-fixed-dim: '#4cd7f6'
+  on-tertiary-fixed: '#001f26'
+  on-tertiary-fixed-variant: '#004e5c'
+  background: '#0c1322'
+  on-background: '#dce2f7'
+  surface-variant: '#2e3545'
+typography:
+  headline-xl:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 28px
+    fontWeight: '600'
+    lineHeight: 36px
+    letterSpacing: -0.02em
+  headline-lg:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 20px
+    fontWeight: '600'
+    lineHeight: 28px
+    letterSpacing: -0.01em
+  headline-sm:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 15px
+    fontWeight: '600'
+    lineHeight: 20px
+    letterSpacing: '0'
+  body-md:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 13px
+    fontWeight: '400'
+    lineHeight: 18px
+    letterSpacing: '0'
+  body-sm:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 12px
+    fontWeight: '400'
+    lineHeight: 16px
+    letterSpacing: '0'
+  code-md:
+    fontFamily: JetBrains Mono
+    fontSize: 13px
+    fontWeight: '400'
+    lineHeight: 18px
+    letterSpacing: -0.01em
+  code-sm:
+    fontFamily: JetBrains Mono
+    fontSize: 11px
+    fontWeight: '500'
+    lineHeight: 16px
+    letterSpacing: '0'
+  label-md:
+    fontFamily: JetBrains Mono
+    fontSize: 11px
+    fontWeight: '600'
+    lineHeight: 14px
+    letterSpacing: 0.04em
+  label-xs:
+    fontFamily: JetBrains Mono
+    fontSize: 9px
+    fontWeight: '600'
+    lineHeight: 12px
+    letterSpacing: 0.06em
+rounded:
+  sm: 0.125rem
+  DEFAULT: 0.25rem
+  md: 0.375rem
+  lg: 0.5rem
+  xl: 0.75rem
+  full: 9999px
+spacing:
+  gutter: 0.5rem
+  gutter-compact: 0.25rem
+  margin: 1rem
+  space-xs: 0.25rem
+  space-sm: 0.375rem
+  space-md: 0.75rem
+  space-lg: 1rem
+  space-xl: 1.5rem
+---
+
+## Brand & Style
+
+This design system establishes an algorithmic creative environment bridging heritage textile geometry with parametric generative tools. The aesthetic fuses studio workstation utility with computational elegance, structured around high-density data controls, algorithmic syntax displays, and real-time canvas rendering.
+
+### Style Archetype
+- **Technical Minimalist & Studio Glass:** Deep slate-charcoal structural surfaces meet crisp hairline borders, calibrated optical glows, and translucent control panels that float over generative viewports.
+- **Parametric Precision:** UI density is compact and mathematically disciplined. Tooling emphasizes visual feedback for complex matrix values, recursion depths, and trigonometric offsets without visual clutter.
+
+### Emotional Signature
+- **Atmospheric & Immersive:** Midnight indigo foundations eliminate eye fatigue during prolonged generative sessions.
+- **Cultural Resonance:** Warm batik ochre, copper leaf, and iridescent verdigris/emerald points highlight mathematical nodes, vectors, and execution states against the dark architecture.
+- **Surgical Exactitude:** Sharp, low-noise styling communicates scientific reliability, giving creators confidence in heavy iterative computation.
+
+## Colors
+
+The palette operates in a calibrated dark hierarchy designed for precision vector visualization. Surfaces leverage deep indigo-charcoals rather than neutral grays, retaining chromatic depth across dense modular panels.
+
+### Surface Hierarchy
+- **Canvas Base (`#0b0f19`):** The deepest foundation, dedicated strictly to viewport backgrounds and the infinite generative workspace.
+- **Dock & Shell (`#111827`):** Primary structural surface housing side rails, inspector panels, and menu ribbons.
+- **Floating Surfaces & Dialogs (`#1f2937`):** Elevated utility blocks, dropdowns, and flyout palettes.
+- **Interactive Troughs (`#161e2e`):** Inset areas, parameter sliders, curve graphs, and formula inputs.
+
+### Accents & State Semantics
+- **Batik Gold (`#f59e0b`):** Primary interaction anchor. Denotes active nodes, compile triggers, generative seed states, and focal transformations. Supported by copper hover transitions (`#d97706`) and highlighted by bright saffron (`#fbbf24`).
+- **Verdigris Emerald (`#10b981`):** Secondary accent. Used for algorithmic convergence, valid compilation, active symmetry locks, and rendering pipeline integrity.
+- **Cyan Resonance (`#06b6d4`):** Tertiary accent. Reserved for vector geometry coordinates, auxiliary mathematical handles, and secondary coordinate axes.
+- **Structural Borders:** Subtle indigo hairlines (`rgba(55, 65, 81, 0.45)`) and active focus strokes (`rgba(245, 158, 11, 0.6)`).
+
+## Typography
+
+The typographic strategy balances human-readable ergonomics with algorithmic precision. 
+
+### Font Distribution
+- **Controls & Prose (`Plus Jakarta Sans`):** Selected for clean geometric forms and exceptional micro-legibility at 12px and 13px across complex toolbars.
+- **Mathematical Syntax & Data Displays (`JetBrains Mono`):** Applied to numeric steppers, formula builders, matrix configurations, coordinates, and status logs. Ligatures remain enabled for mathematical equations and programming expressions.
+
+### Application Rules
+- All numeric data, parameters, and variable definitions must render exclusively in `JetBrains Mono` with tabular sizing (`tnum`) to eliminate layout shifting during continuous scrubbing.
+- Labels for technical tools, symmetry planes, and layer configurations use uppercase styling with generous tracking (`0.04em` to `0.06em`) in `label-md` or `label-xs`.
+- Form headers, panel titles, and modal labels utilize `headline-sm` or `headline-lg` in balanced medium weights to avoid visual heaviness.
+
+## Layout & Spacing
+
+This design system uses a specialized studio workspace layout combining a fixed-flexible dock system with an unbounded canvas view.
+
+### Studio Shell Anatomy
+- **Left Tool Rail (Compact):** Fixed 56px utility strip for generative brush sets, seed pickers, and viewport transformation modes.
+- **Main Viewport (Fluid):** Central interactive webgl canvas stretching dynamically across remaining space.
+- **Right Inspector (Modular):** Fixed width panel (320px default, resizable between 280px and 480px) hosting formula nodes, recursion sliders, and color-mapping controls.
+- **Timeline/Node Shelf (Bottom Dock):** Collapsible horizontal tray (height 200px) with 8px internal component padding.
+
+### Grid & Density Rules
+- Workstation controls operate on a 4px/8px micro-grid. Spacing between interactive parameters never exceeds `space-md` (12px) to maximize screen efficiency.
+- Modular panels utilize `gutter-compact` (4px) for grouped property rows and `gutter` (8px) between discrete parameter groups.
+- Viewport overlays (FPS counter, zoom matrix, layer heads) sit detached from viewport boundaries using `margin` (16px).
+
+## Elevation & Depth
+
+Visual depth is achieved through translucent optical tiering and subtle luminescence rather than heavy drop shadows.
+
+### Glassmorphism & Tonal Surfaces
+- **Viewport Floating Panels:** Background set to `rgba(17, 24, 39, 0.72)` combined with a `backdrop-filter: blur(12px)`. Outlined with a 1px border of `rgba(255, 255, 255, 0.08)`.
+- **Active Selection Tiers:** Layer stacks and formula cards use subtle radial gradient overlays rooted in Batik Gold (`radial-gradient(ellipse at top left, rgba(245, 158, 11, 0.08), transparent 70%)`).
+
+### Hairline Borders & Edge Lighting
+- Borders universally measure 1px with no soft outer glow under normal conditions. 
+- Elements under focused manual control or drag operations trigger an active optical edge: `box-shadow: 0 0 0 1px #f59e0b, 0 0 12px rgba(245, 158, 11, 0.25)`.
+- Critical status warnings or math calculation errors switch edge illumination to dynamic crimson (`rgba(239, 68, 68, 0.35)`).
+
+## Shapes
+
+The interface embraces a structured, industrial geometry with micro-softened corners (`roundedness: 1`).
+
+### Corner Radius System
+- **Base Components (Inputs, Segmented Controls, Buttons):** 4px (`0.25rem`) radius. Maintains tight packing without sharp corners piercing the workspace.
+- **Containers & Flyouts (`rounded-lg`):** 8px (`0.5rem`) radius for inspector sections, dropdown menus, and modal dialogs.
+- **Canvas Overlays (`rounded-xl`):** 12px (`0.75rem`) radius for detached HUD overlays floating over the generative canvas.
+- **Numeric Badges & Vector Nodes:** 2px micro-radii or precise circles (full circular radius) reserved exclusively for draggable handle nodes and vector vertex indicators.
+
+## Components
+
+### Buttons & Action Triggers
+- **Primary Generator Actions (e.g., "Synthesize Pattern"):** Solid Batik Gold (`#f59e0b`) background, `#0b0f19` text in `Plus Jakarta Sans` semi-bold. On hover, transitions to `#d97706`. On active press, slight scale compression (`transform: scale(0.98)`).
+- **Secondary Tooling Actions:** Background `rgba(31, 41, 55, 0.6)`, 1px border `rgba(255, 255, 255, 0.08)`, text `#d1d5db`. On hover, border shifts to `#f59e0b` at 50% opacity with text brightening to white.
+- **Ghost/Icon Triggers:** Monochromatic icons against transparent backgrounds. On hover, reveals `rgba(255, 255, 255, 0.05)` fill with 4px border-radius.
+
+### Inputs, Sliders & Parameter Steppers
+- **Scrubbable Numeric Fields:** Dark background (`#161e2e`), mono typography (`JetBrains Mono` 11px), 1px border (`#1f2937`). Labels sit inside the left margin in muted uppercase; raw numeric value aligns right. Double-clicking switches into raw text edit mode.
+- **Parametric Sliders:** Inset 3px track (`#0b0f19`) with filled progress bar in primary gold or verdigris emerald. The draggable thumb is a precision 10px rectangle (not a circle) with a vertical 1px indicator line.
+- **Formula & Expression Inputs:** Full monospaced input field with inline syntax validation, highlighting mathematical constants ($pi, e$), coordinates ($x, y, z$), and trigonometric operators in cyan (`#06b6d4`) and gold (`#fbbf24`).
+
+### Cards & Inspector Groups
+- Grouping containers leverage flat `#111827` backings with a continuous 1px bottom border separator (`#1f2937`).
+- Card headers feature collapsible chevrons, label text in `Plus Jakarta Sans` 13px medium, and quick-toggle action switches on the right.
+
+### Chips & Mathematical Tags
+- Height: 20px. Font: `JetBrains Mono` 10px. 
+- Border: 1px solid `rgba(245, 158, 11, 0.25)`. Background: `rgba(245, 158, 11, 0.08)`. Text: `#fbbf24`.
+- Used for dynamic layer types (e.g., `Ceplok`, `Kawung`, `Parang Matrix`, `L-System`).
+
+### Checkboxes, Switches & Node Connectors
+- **Checkboxes:** Compact 14x14px square, 2px rounded corners. Unchecked: `#161e2e` with `#374151` border. Checked: `#f59e0b` fill with `#0b0f19` micro-check icon.
+- **Toggles:** 28x16px capsule track. Enabled state switches track to `#10b981` (Emerald) for continuous algorithms or `#f59e0b` for generative overrides.
+- **Vector Connectors:** 6px circular terminal points with an outer 2px transparent halo. When connected to bezier curves, anchors turn solid cyan (`#06b6d4`).

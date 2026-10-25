@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+
+<html class="light" id="html-root" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BatikMath - Fractal Pattern Generator</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error-container": "#93000a",
+            "outline": "#85736f",
+            "on-tertiary-container": "#2d5640",
+            "on-primary-fixed-variant": "#6d382d",
+            "primary": "#894f42",
+            "primary-fixed": "#ffdad3",
+            "inverse-surface": "#31302d",
+            "on-secondary": "#ffffff",
+            "secondary": "#70518d",
+            "inverse-on-surface": "#f4f0ea",
+            "on-secondary-fixed-variant": "#573974",
+            "surface": "#fdf9f3",
+            "surface-container-high": "#ebe8e2",
+            "on-primary-fixed": "#370e06",
+            "on-tertiary-fixed-variant": "#264f39",
+            "surface-tint": "#894f42",
+            "on-tertiary": "#ffffff",
+            "background": "#fdf9f3",
+            "on-primary-container": "#753f33",
+            "surface-dim": "#dddad4",
+            "on-secondary-container": "#654782",
+            "error": "#ba1a1a",
+            "primary-fixed-dim": "#ffb4a4",
+            "surface-container": "#f1ede7",
+            "inverse-primary": "#ffb4a4",
+            "primary-container": "#f8ad9d",
+            "surface-container-highest": "#e6e2dc",
+            "error-container": "#ffdad6",
+            "tertiary-fixed": "#c0edd0",
+            "tertiary-container": "#9ecaae",
+            "tertiary-fixed-dim": "#a4d1b4",
+            "on-secondary-fixed": "#290a45",
+            "surface-container-low": "#f7f3ed",
+            "on-surface-variant": "#524340",
+            "surface-container-lowest": "#ffffff",
+            "on-primary": "#ffffff",
+            "outline-variant": "#eadfcf",
+            "surface-bright": "#fdf9f3",
+            "on-surface": "#2b2d42",
+            "surface-variant": "#e6e2dc",
+            "on-tertiary-fixed": "#002112",
+            "secondary-fixed": "#f0dbff",
+            "secondary-container": "#dfbbff",
+            "on-error": "#ffffff",
+            "tertiary": "#3e6750",
+            "on-background": "#2b2d42",
+            "secondary-fixed-dim": "#dcb8fc",
+            /* Pastel Accent System */
+            "pastel-coral": "#f8ad9d",
+            "pastel-coral-dark": "#e07a68",
+            "pastel-peach": "#fcd5ce",
+            "pastel-lavender": "#e2d4f0",
+            "pastel-lavender-dark": "#8a70a8",
+            "pastel-mint": "#84dcc6",
+            "pastel-sage": "#c7e8d6",
+            "pastel-blue": "#bae1ff",
+            "pastel-yellow": "#ffd166",
+            "charcoal": "#2b2d42",
+            "charcoal-muted": "#524340"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "1rem",
+            "gutter-compact": "0.25rem",
+            "gutter": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-xl": "2.5rem"
+          },
+          "fontFamily": {
+            "body-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "code-sm": ["JetBrains Mono"],
+            "code-md": ["JetBrains Mono"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "label-xs": ["JetBrains Mono"],
+            "label-md": ["JetBrains Mono"],
+            "headline-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0", "fontWeight": "400" }],
+            "code-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0", "fontWeight": "500" }],
+            "code-md": ["13px", { "lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "400" }],
+            "headline-lg": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-xs": ["9px", { "lineHeight": "12px", "letterSpacing": "0.06em", "fontWeight": "600" }],
+            "label-md": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-sm": ["15px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      font-size: 18px;
+      line-height: 1;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #f7f3ed;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #eadfcf;
+      border-radius: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #d8c2bd;
+    }
+    /* Delicate Pastel Porcelain Blueprint Grid */
+    .blueprint-grid {
+      background-color: #fdfbf7;
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(224, 212, 196, 0.45) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(224, 212, 196, 0.45) 1px, transparent 1px);
+    }
+    .pastel-radial-glow {
+      background: radial-gradient(circle at center, rgba(248, 173, 157, 0.22) 0%, rgba(226, 212, 240, 0.15) 45%, rgba(253, 251, 247, 0) 72%);
+    }
+    .slider-thumb::-webkit-slider-thumb {
+      appearance: none;
+      width: 14px;
+      height: 14px;
+      background: #f8ad9d;
+      border: 2px solid #ffffff;
+      border-radius: 9999px;
+      cursor: ew-resize;
+      box-shadow: 0 1px 4px rgba(248, 173, 157, 0.6);
+    }
+    .slider-thumb::-moz-range-thumb {
+      width: 14px;
+      height: 14px;
+      background: #f8ad9d;
+      border: 2px solid #ffffff;
+      border-radius: 9999px;
+      cursor: ew-resize;
+      box-shadow: 0 1px 4px rgba(248, 173, 157, 0.6);
+    }
+    .batik-pastel-glow {
+      filter: drop-shadow(0 6px 20px rgba(242, 132, 130, 0.28));
+    }
+</style>
+</head>
+<body class="bg-background text-on-surface antialiased overflow-hidden font-body-md select-none h-screen flex flex-col transition-colors duration-200">
+<!-- TOP APP BAR -->
+<header class="w-full h-14 px-margin flex items-center justify-between border-b border-outline-variant bg-surface-container-lowest/90 backdrop-blur-md z-30 flex-shrink-0 shadow-sm">
+<!-- Left: Brand Anchor & Title -->
+<div class="flex items-center gap-space-lg">
+<div class="text-headline-sm font-headline-sm font-semibold tracking-tight text-on-surface flex items-center gap-space-xs">
+<!-- Pastel Coral Batik Motif Badge -->
+<div class="w-8 h-8 rounded-lg bg-pastel-peach/50 border border-pastel-coral/40 flex items-center justify-center relative overflow-hidden shadow-xs">
+<div class="absolute inset-0 bg-gradient-to-tr from-pastel-coral/30 via-transparent to-pastel-lavender/30"></div>
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="polyline" style="font-variation-settings: 'FILL' 1;">polyline</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs leading-none">
+<span class="font-bold tracking-tight text-on-surface">BatikMath</span>
+<span class="text-label-xs font-label-xs px-1.5 py-0.5 rounded-full bg-pastel-coral/25 text-primary-container font-semibold border border-pastel-coral/40">v2.4</span>
+</div>
+<span class="text-label-xs font-label-xs text-on-surface-variant font-normal tracking-wide">Parametric Fractal &amp; Batik Studio</span>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<nav class="hidden md:flex items-center gap-space-md text-label-md font-label-md ml-4">
+<a class="border-b-2 border-primary text-primary pb-1 font-semibold flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]" data-icon="draw">draw</span>
+          Canvas
+        </a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors pb-1 flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]" data-icon="function">function</span>
+          Formulas
+        </a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors pb-1 flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]" data-icon="auto_awesome_motion">auto_awesome_motion</span>
+          Presets
+        </a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors pb-1 flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]" data-icon="history">history</span>
+          Export History
+        </a>
+</nav>
+</div>
+<!-- Center: Preset Quick Select Chips -->
+<div class="hidden xl:flex items-center gap-space-xs bg-surface-container-low px-2 py-1 rounded-full border border-outline-variant">
+<span class="text-label-xs font-label-xs text-outline mr-1 font-semibold">PRESET:</span>
+<button class="px-2.5 py-0.5 rounded-full text-label-xs font-label-xs bg-pastel-coral/30 text-on-primary-container border border-pastel-coral font-medium shadow-xs">Parang Rusak Fractal</button>
+<button class="px-2.5 py-0.5 rounded-full text-label-xs font-label-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">Ceplok Bintang</button>
+<button class="px-2.5 py-0.5 rounded-full text-label-xs font-label-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">Kawung Recursion</button>
+<button class="px-2.5 py-0.5 rounded-full text-label-xs font-label-xs text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">Truntum Lattice</button>
+</div>
+<!-- Right: Trailing Actions -->
+<div class="flex items-center gap-space-sm">
+<!-- Randomize Seed Quick Action -->
+<button class="flex items-center gap-1 px-space-md py-1.5 rounded-lg border border-outline-variant bg-surface-container-lowest hover:border-pastel-coral text-on-surface hover:text-primary text-label-md font-label-md transition-all active:scale-[0.98] shadow-xs">
+<span class="material-symbols-outlined text-[16px] text-pastel-coral-dark" data-icon="casino">casino</span>
+<span class="hidden sm:inline font-medium">Randomize Seed</span>
+</button>
+<!-- Trailing Primary Action: Generate Pattern (Pastel Peach/Coral) -->
+<button class="flex items-center gap-1.5 px-space-md py-1.5 rounded-lg bg-pastel-coral text-on-primary-container font-semibold hover:bg-pastel-coral-dark hover:text-white active:scale-[0.98] transition-all text-label-md font-label-md shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="bolt">bolt</span>
+<span>Generate Pattern</span>
+</button>
+<!-- Trailing Secondary Action: Export Dropdown -->
+<div class="relative group">
+<button class="flex items-center gap-1 px-space-md py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-label-md font-label-md border border-outline-variant transition-all">
+<span class="material-symbols-outlined text-[16px]" data-icon="download">download</span>
+<span>Export</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="expand_more">expand_more</span>
+</button>
+<!-- Dropdown Menu -->
+<div class="absolute right-0 mt-1 w-44 bg-surface-container-lowest border border-outline-variant rounded-xl shadow-lg py-1.5 hidden group-hover:block z-50">
+<a class="px-3 py-1.5 text-label-md font-label-md flex items-center justify-between text-on-surface hover:bg-surface-container-low hover:text-primary" href="#">
+<span>SVG Vector (Path)</span>
+<span class="text-label-xs text-outline">Scale free</span>
+</a>
+<a class="px-3 py-1.5 text-label-md font-label-md flex items-center justify-between text-on-surface hover:bg-surface-container-low hover:text-primary" href="#">
+<span>PNG Raster (2400px)</span>
+<span class="text-label-xs text-outline">4X High-res</span>
+</a>
+<a class="px-3 py-1.5 text-label-md font-label-md flex items-center justify-between text-on-surface hover:bg-surface-container-low hover:text-primary" href="#">
+<span>L-System JSON Formula</span>
+<span class="text-label-xs text-outline">Config</span>
+</a>
+</div>
+</div>
+<div class="h-4 w-px bg-outline-variant mx-1"></div>
+<!-- THEME BADGE INDICATOR -->
+<button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-outline-variant bg-pastel-peach/40 hover:bg-pastel-peach text-on-surface transition-all active:scale-95 group" id="theme-toggle-btn" title="Soft Pastel Porcelain Aesthetic">
+<span class="material-symbols-outlined text-[17px] text-pastel-coral-dark" data-icon="palette" id="theme-toggle-icon">palette</span>
+<span class="text-label-xs font-label-xs font-semibold tracking-wide text-charcoal" id="theme-toggle-label">Pastel</span>
+</button>
+<div class="h-4 w-px bg-outline-variant mx-0.5"></div>
+<!-- Icon Actions -->
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Tune Parameters">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Documentation">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Settings">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<!-- Profile avatar -->
+<div class="w-7 h-7 rounded-full bg-pastel-lavender/60 border border-pastel-lavender-dark/30 flex items-center justify-center overflow-hidden ml-1">
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="person">person</span>
+</div>
+</div>
+</header>
+<!-- WORKSPACE BODY (SideNav & Canvas) -->
+<div class="flex-1 flex overflow-hidden relative">
+<!-- COMPACT STUDIO RAIL (56px) -->
+<aside class="w-14 bg-surface-container-lowest border-r border-outline-variant flex flex-col items-center py-3 justify-between z-20 flex-shrink-0 shadow-xs">
+<div class="flex flex-col items-center gap-space-md">
+<!-- Active Mode Indicator -->
+<button class="w-9 h-9 rounded-xl bg-pastel-peach/40 border-l-2 border-pastel-coral text-primary flex items-center justify-center hover:bg-pastel-peach/70 transition-colors shadow-xs" title="L-System Rules">
+<span class="material-symbols-outlined text-[20px]" data-icon="function">function</span>
+</button>
+<button class="w-9 h-9 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center justify-center transition-colors" title="Transforms &amp; Angle">
+<span class="material-symbols-outlined text-[20px]" data-icon="schema">schema</span>
+</button>
+<button class="w-9 h-9 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center justify-center transition-colors" title="Symmetry Matrix">
+<span class="material-symbols-outlined text-[20px]" data-icon="rotate_right">rotate_right</span>
+</button>
+<button class="w-9 h-9 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center justify-center transition-colors" title="Color Palette">
+<span class="material-symbols-outlined text-[20px]" data-icon="palette">palette</span>
+</button>
+<button class="w-9 h-9 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center justify-center transition-colors" title="Preset Library">
+<span class="material-symbols-outlined text-[20px]" data-icon="library_books">library_books</span>
+</button>
+</div>
+<div class="flex flex-col items-center gap-space-md border-t border-outline-variant pt-3 w-full">
+<button class="w-9 h-9 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center justify-center transition-colors" title="Diagnostics">
+<span class="material-symbols-outlined text-[18px]" data-icon="terminal">terminal</span>
+</button>
+<button class="w-9 h-9 rounded-xl text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center justify-center transition-colors" title="Preferences">
+<span class="material-symbols-outlined text-[18px]" data-icon="tune">tune</span>
+</button>
+</div>
+</aside>
+<!-- LEFT CONTROL SIDEBAR (380px inspector dock) -->
+<aside class="w-96 bg-surface-container-lowest border-r border-outline-variant flex flex-col justify-between overflow-y-auto custom-scroll z-10 flex-shrink-0 shadow-xs">
+<!-- Studio Header / Mode Status -->
+<div class="p-space-md border-b border-outline-variant bg-surface-container-low/60">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-lg bg-pastel-coral/20 border border-pastel-coral/40 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[16px]" data-icon="all_inclusive">all_inclusive</span>
+</div>
+<div>
+<h2 class="text-headline-sm font-headline-sm text-charcoal font-bold leading-tight">Fractal Generator</h2>
+<p class="text-label-xs font-label-xs text-on-surface-variant">Parametric Studio v2.4 • L-System Kernel</p>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-xs font-label-xs bg-pastel-sage/50 text-tertiary border border-pastel-sage font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-pastel-mint"></span> Ready
+          </span>
+</div>
+</div>
+<!-- Main Parameter Stack -->
+<div class="p-space-md flex flex-col gap-space-md bg-surface-container-low/20">
+<!-- SECTION 1: Mathematical Grammar -->
+<div class="flex flex-col gap-space-sm bg-surface-container-lowest p-3 rounded-xl border border-outline-variant shadow-xs">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-charcoal font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-pastel-coral-dark" data-icon="menu_book">menu_book</span>
+              Mathematical Grammar
+            </span>
+<span class="text-label-xs font-label-xs text-charcoal px-2 py-0.5 rounded-full bg-pastel-lavender/60 border border-pastel-lavender font-medium">L-System</span>
+</div>
+<!-- Axiom Input -->
+<div class="flex flex-col gap-1">
+<label class="text-label-xs font-label-xs text-on-surface-variant flex justify-between font-semibold">
+<span>AXIOM (STARTING SEED)</span>
+<span class="text-outline font-normal">Symbol: ω</span>
+</label>
+<div class="relative flex items-center">
+<input class="w-full bg-surface-container-low/40 border border-outline-variant focus:border-pastel-coral focus:ring-1 focus:ring-pastel-coral rounded-lg px-2.5 py-1.5 text-code-md font-code-md text-secondary font-semibold uppercase tracking-wider pr-16" spellcheck="false" type="text" value="FX"/>
+<div class="absolute right-1 flex items-center gap-0.5 text-on-surface-variant">
+<button class="p-1 hover:text-primary transition-colors" title="Copy Axiom">
+<span class="material-symbols-outlined text-[14px]" data-icon="content_copy">content_copy</span>
+</button>
+<button class="p-1 hover:text-error transition-colors" title="Clear">
+<span class="material-symbols-outlined text-[14px]" data-icon="backspace">backspace</span>
+</button>
+</div>
+</div>
+</div>
+<!-- L-System Rules Editor (Pastel Ivory Editor Theme) -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center text-label-xs font-label-xs text-on-surface-variant font-semibold">
+<span>PRODUCTION RULES (P)</span>
+<span class="text-pastel-coral-dark hover:underline cursor-pointer flex items-center gap-0.5" title="Rules: F=Forward, +=Turn R, -=Turn L, [=Push, ]=Pop">
+<span class="material-symbols-outlined text-[12px]" data-icon="help_outline">help_outline</span> Syntax Guide
+              </span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden flex flex-col shadow-xs">
+<!-- Header tab inside code area -->
+<div class="bg-surface-container-low px-2.5 py-1 flex justify-between items-center border-b border-outline-variant text-label-xs font-label-xs text-outline font-medium">
+<span class="text-charcoal font-semibold">ceplok_parang_rules.lsys</span>
+<span>UTF-8</span>
+</div>
+<div class="flex text-code-sm font-code-sm leading-5 p-2 bg-[#fdfcf9]">
+<!-- Line Numbers -->
+<div class="text-outline/50 select-none pr-2.5 text-right border-r border-outline-variant mr-2 flex flex-col font-code-sm">
+<span>1</span>
+<span>2</span>
+<span>3</span>
+</div>
+<!-- Rules Code with Pastel Highlighting -->
+<div class="flex-1 overflow-x-auto text-charcoal font-code-sm whitespace-pre">
+<div><span class="text-[#e07a68] font-bold">X</span> <span class="text-outline">→</span> <span class="text-[#8a70a8] font-medium">X</span>+<span class="text-[#2a9d8f] font-semibold">YF</span>++<span class="text-[#2a9d8f] font-semibold">YF</span>-<span class="text-[#8a70a8]">FX</span>--<span class="text-[#8a70a8]">FXFX</span>-<span class="text-[#2a9d8f] font-semibold">YF</span>+</div>
+<div><span class="text-[#2a9d8f] font-bold">Y</span> <span class="text-outline">→</span> -<span class="text-[#8a70a8]">FX</span>+<span class="text-[#2a9d8f] font-semibold">YFYF</span>++<span class="text-[#2a9d8f] font-semibold">YF</span>+<span class="text-[#8a70a8]">FX</span>--<span class="text-[#8a70a8]">FX</span>-<span class="text-[#2a9d8f]">Y</span></div>
+<div><span class="text-[#b5a796] italic">// 4-Fold Parang Rusak Recursion</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 2: Parametric Sliders Section -->
+<div class="flex flex-col gap-space-sm bg-surface-container-lowest p-3 rounded-xl border border-outline-variant shadow-xs">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-charcoal font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-pastel-coral-dark" data-icon="tune">tune</span>
+              Parametric Constraints
+            </span>
+<span class="text-label-xs font-label-xs text-tertiary px-2 py-0.5 rounded-full bg-pastel-sage/50 border border-pastel-sage font-medium">Geometric</span>
+</div>
+<!-- Slider 1: Turning Angle -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center text-label-xs font-label-xs">
+<span class="text-on-surface-variant font-semibold">BRANCHING ANGLE (θ)</span>
+<div class="flex items-center gap-1 bg-surface-container-low px-2 py-0.5 rounded-md border border-outline-variant">
+<input class="w-10 bg-transparent text-right font-code-sm text-code-sm text-charcoal font-bold focus:outline-none" type="text" value="60.0"/>
+<span class="text-outline text-label-xs">°</span>
+</div>
+</div>
+<input class="w-full h-1.5 bg-surface-container-high rounded-full appearance-none cursor-pointer slider-thumb" max="180" min="0" step="0.5" type="range" value="60"/>
+<div class="flex justify-between text-label-xs font-label-xs text-outline px-0.5">
+<span>0°</span>
+<span>45° (Batik)</span>
+<span class="text-pastel-coral-dark font-medium">60° (Truntum)</span>
+<span>90°</span>
+<span>180°</span>
+</div>
+</div>
+<!-- Slider 2: Recursion Depth -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-center text-label-xs font-label-xs">
+<span class="text-on-surface-variant font-semibold">RECURSION DEPTH (N)</span>
+<div class="flex items-center gap-1">
+<span class="px-2 py-0.5 rounded-full text-code-sm font-code-sm bg-pastel-coral/25 text-on-primary-container font-semibold border border-pastel-coral/50">N = 4</span>
+</div>
+</div>
+<div class="grid grid-cols-6 gap-1 pt-1">
+<button class="py-1 rounded-lg text-center text-label-xs font-label-xs bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container border border-outline-variant">1</button>
+<button class="py-1 rounded-lg text-center text-label-xs font-label-xs bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container border border-outline-variant">2</button>
+<button class="py-1 rounded-lg text-center text-label-xs font-label-xs bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container border border-outline-variant">3</button>
+<button class="py-1 rounded-lg text-center text-label-xs font-label-xs bg-pastel-coral text-on-primary-container font-bold border border-pastel-coral shadow-xs">4</button>
+<button class="py-1 rounded-lg text-center text-label-xs font-label-xs bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container border border-outline-variant">5</button>
+<button class="py-1 rounded-lg text-center text-label-xs font-label-xs bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container border border-outline-variant">6</button>
+</div>
+</div>
+<!-- Slider 3: Step Length & Line Thickness -->
+<div class="grid grid-cols-2 gap-space-sm pt-1">
+<div class="flex flex-col gap-1">
+<div class="flex justify-between text-label-xs font-label-xs">
+<span class="text-on-surface-variant font-semibold">STEP LENGTH</span>
+<span class="font-code-sm text-charcoal font-bold">8.5 px</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-high rounded-full appearance-none cursor-pointer slider-thumb" max="30" min="1" step="0.5" type="range" value="8.5"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between text-label-xs font-label-xs">
+<span class="text-on-surface-variant font-semibold">THICKNESS</span>
+<span class="font-code-sm text-charcoal font-bold">1.75 px</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-high rounded-full appearance-none cursor-pointer slider-thumb" max="8" min="0.5" step="0.25" type="range" value="1.75"/>
+</div>
+</div>
+</div>
+<!-- SECTION 3: Batik Symmetry & Structure Dropdown -->
+<div class="flex flex-col gap-space-sm bg-surface-container-lowest p-3 rounded-xl border border-outline-variant shadow-xs">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-charcoal font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-pastel-coral-dark" data-icon="join_inner">join_inner</span>
+              Batik Symmetry &amp; Grid Matrix
+            </span>
+<span class="text-label-xs font-label-xs text-secondary px-2 py-0.5 rounded-full bg-pastel-lavender/60 border border-pastel-lavender font-medium">Dihedral D4</span>
+</div>
+<div class="relative">
+<select class="w-full bg-surface-container-low/50 border border-outline-variant rounded-lg px-2.5 py-1.5 text-body-sm font-body-sm text-charcoal font-medium focus:border-pastel-coral focus:ring-1 focus:ring-pastel-coral appearance-none cursor-pointer">
+<option value="none">None (Single Plane)</option>
+<option selected="" value="4fold">4-Fold (Ceplok / Parang Rusak Matrix)</option>
+<option value="6fold">6-Fold (Hexagonal Truntum Lattice)</option>
+<option value="8fold">8-Fold (Mandala Cirebon Sunburst)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-outline pointer-events-none text-[16px]" data-icon="unfold_more">unfold_more</span>
+</div>
+<!-- Taper Profile & Juring Toggle -->
+<div class="flex items-center justify-between pt-1">
+<span class="text-body-sm font-body-sm text-on-surface-variant font-medium">Canting Bleed &amp; Juring Wax</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-8 h-4 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-pastel-coral"></div>
+</label>
+</div>
+</div>
+<!-- SECTION 4: Color & Textile Palette (Soft Pastel Swatches) -->
+<div class="flex flex-col gap-space-sm bg-surface-container-lowest p-3 rounded-xl border border-outline-variant shadow-xs">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-charcoal font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-pastel-coral-dark" data-icon="palette">palette</span>
+              Textile Dye &amp; Canting Pigments
+            </span>
+<span class="text-label-xs font-label-xs text-outline font-medium">HEX Codes</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<!-- Stroke Swatch: Pastel Rose-Coral -->
+<div class="flex flex-col gap-1">
+<span class="text-label-xs font-label-xs text-on-surface-variant font-semibold" id="swatch-stroke-title">PASTEL ROSE-CORAL</span>
+<div class="flex items-center gap-2 bg-surface-container-low/50 border border-outline-variant rounded-lg p-1.5">
+<div class="w-5 h-5 rounded-md bg-[#F28482] border border-white shadow-xs flex-shrink-0" id="swatch-stroke-box"></div>
+<div class="flex flex-col">
+<span class="font-code-sm text-code-sm text-charcoal uppercase font-bold" id="swatch-stroke-hex">#F28482</span>
+<span class="text-[9px] text-outline leading-none" id="swatch-stroke-desc">Canting Rose</span>
+</div>
+</div>
+</div>
+<!-- Background Swatch: Warm Porcelain Cream -->
+<div class="flex flex-col gap-1">
+<span class="text-label-xs font-label-xs text-on-surface-variant font-semibold" id="swatch-bg-title">PORCELAIN CREAM</span>
+<div class="flex items-center gap-2 bg-surface-container-low/50 border border-outline-variant rounded-lg p-1.5">
+<div class="w-5 h-5 rounded-md bg-[#FDFBF7] border border-outline-variant shadow-xs flex-shrink-0" id="swatch-bg-box"></div>
+<div class="flex flex-col">
+<span class="font-code-sm text-code-sm text-charcoal uppercase font-bold" id="swatch-bg-hex">#FDFBF7</span>
+<span class="text-[9px] text-outline leading-none" id="swatch-bg-desc">Ivory Mori</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="p-space-md border-t border-outline-variant bg-surface-container-lowest flex flex-col gap-2">
+<div class="grid grid-cols-2 gap-2">
+<button class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-pastel-coral text-on-primary-container font-semibold hover:bg-pastel-coral-dark hover:text-white active:scale-[0.98] transition-all text-label-md font-label-md shadow-xs">
+<span class="material-symbols-outlined text-[16px]" data-icon="play_arrow">play_arrow</span>
+<span>Synthesize</span>
+</button>
+<button class="flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface border border-outline-variant active:scale-[0.98] transition-all text-label-md font-label-md font-medium">
+<span class="material-symbols-outlined text-[16px] text-pastel-coral-dark" data-icon="shuffle">shuffle</span>
+<span>Randomize</span>
+</button>
+</div>
+<div class="flex items-center justify-between text-label-xs font-label-xs text-outline px-1">
+<span>Engine: WebGL2 Javanese Math v2</span>
+<span class="text-tertiary flex items-center gap-1 font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-pastel-mint"></span> 60 FPS
+          </span>
+</div>
+</div>
+</aside>
+<!-- MAIN VIEWPORT: INTERACTIVE FRACTAL CANVAS (Porcelain Bright Background) -->
+<main class="flex-1 relative flex items-center justify-center bg-[#fdfbf7] overflow-hidden blueprint-grid transition-colors duration-200">
+<!-- Soft Ambient Radial Glow Behind Motif -->
+<div class="absolute w-[800px] h-[800px] rounded-full pastel-radial-glow pointer-events-none transition-all duration-300"></div>
+<!-- Subtle Coordinate Origin Crosshair -->
+<div class="absolute inset-0 pointer-events-none flex items-center justify-center opacity-40">
+<div class="w-full h-px bg-[#eadfcf]"></div>
+<div class="h-full w-px bg-[#eadfcf] absolute"></div>
+</div>
+<!-- Outer Symmetry Radial Guides in Soft Warm Greys -->
+<div class="absolute w-[580px] h-[580px] rounded-full border border-dashed border-[#dcd1c2] pointer-events-none"></div>
+<div class="absolute w-[420px] h-[420px] rounded-full border border-[#ebd8d0] pointer-events-none"></div>
+<div class="absolute w-[260px] h-[260px] rounded-full border border-dashed border-pastel-coral/60 pointer-events-none"></div>
+<!-- INTRICATE PROCEDURAL BATIK FRACTAL SVG (Soft Pastel Palette: Rose, Mint, Lavender, Apricot) -->
+<div class="relative z-0 p-8 transform hover:scale-[1.01] transition-transform duration-300">
+<svg class="w-[580px] h-[580px] batik-pastel-glow transition-all duration-300" viewbox="-300 -300 600 600" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<!-- Luxurious Pastel Coral to Soft Rose Gradient -->
+<lineargradient id="pastelRose" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#ffd166"></stop>
+<stop offset="35%" stop-color="#f8ad9d"></stop>
+<stop offset="70%" stop-color="#f28482"></stop>
+<stop offset="100%" stop-color="#bd8996"></stop>
+</lineargradient>
+<!-- Pastel Mint / Turquoise Gradient -->
+<lineargradient id="pastelMint" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#84dcc6"></stop>
+<stop offset="100%" stop-color="#5fa898"></stop>
+</lineargradient>
+<!-- Pastel Lavender Gradient -->
+<lineargradient id="pastelViolet" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#e2d4f0"></stop>
+<stop offset="100%" stop-color="#bdb2ff"></stop>
+</lineargradient>
+<!-- L-System Base Quadrant Motif (Ceplok Parang Curve Unit) -->
+<g id="parangQuadrant">
+<!-- Recursive fractal nested arcs -->
+<path d="M 0 0 C 35 15, 65 5, 90 35 C 115 65, 105 115, 140 140 C 175 165, 215 155, 230 190 C 240 215, 230 245, 200 245 C 170 245, 155 220, 140 200 C 125 180, 110 185, 95 160 C 80 135, 75 110, 50 90 C 25 70, 15 35, 0 0 Z" fill="none" opacity="0.95" stroke="url(#pastelRose)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path>
+<!-- Inner Recursive Fractal Filaments -->
+<path d="M 45 45 C 70 30, 95 55, 120 70 C 145 85, 175 80, 190 110 C 200 130, 185 155, 160 160 C 135 165, 115 140, 95 130 C 75 120, 60 90, 45 45 Z" fill="none" opacity="0.85" stroke="#bdb2ff" stroke-dasharray="1 0" stroke-width="1.6"></path>
+<!-- Micro-Isen Batik Canting Dots & Diamond Lattice (Pastel Dots) -->
+<circle cx="90" cy="35" fill="#f28482" r="3"></circle>
+<circle cx="140" cy="140" fill="#ffd166" r="3.5"></circle>
+<circle cx="65" cy="110" fill="#84dcc6" r="2.5"></circle>
+<circle cx="110" cy="180" fill="#f8ad9d" r="3"></circle>
+<circle cx="180" cy="180" fill="#bdb2ff" r="3.5"></circle>
+<!-- Secondary L-System Flake -->
+<path d="M 0 0 L 25 50 L 50 25 L 75 75 L 50 100 L 100 125 L 75 150 L 125 175 L 100 200" fill="none" opacity="0.8" stroke="#84dcc6" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6"></path>
+<!-- Tertiary Canting Tendrils -->
+<path d="M 60 15 Q 120 40, 140 100 T 220 180" fill="none" opacity="0.65" stroke="#f6bd60" stroke-width="1.2"></path>
+<path d="M 15 60 Q 40 120, 100 140 T 180 220" fill="none" opacity="0.65" stroke="#f6bd60" stroke-width="1.2"></path>
+<!-- Geometric Isen-Isen diamond scale fills -->
+<polygon fill="#fff5eb" fill-opacity="0.6" points="120,110 128,120 120,130 112,120" stroke="#f28482" stroke-width="1.2"></polygon>
+<polygon fill="#eefaf7" fill-opacity="0.6" points="150,140 158,150 150,160 142,150" stroke="#84dcc6" stroke-width="1.2"></polygon>
+<polygon fill="#f4effa" fill-opacity="0.6" points="90,80 96,88 90,96 84,88" stroke="#bdb2ff" stroke-width="1.2"></polygon>
+</g>
+</defs>
+<!-- Central Core Mandala Motif (Ceplok Centerpiece with soft porcelain fills) -->
+<circle cx="0" cy="0" fill="#ffffff" id="moriCoreCircle" r="36" stroke="url(#pastelRose)" stroke-width="2.5"></circle>
+<circle cx="0" cy="0" fill="#faf7f2" id="moriMiddleCircle" r="24" stroke="#84dcc6" stroke-dasharray="3 2" stroke-width="1.5"></circle>
+<circle cx="0" cy="0" fill="#fef5f0" id="moriInnerCircle" r="12" stroke="#f28482" stroke-width="2"></circle>
+<circle cx="0" cy="0" fill="#ffd166" id="moriCenterDot" r="4.5"></circle>
+<!-- Center 8-petal mini rosette -->
+<g fill="none" stroke="#f8ad9d" stroke-width="1.25">
+<path d="M 0 -24 C 6 -16, 6 -8, 0 0 C -6 -8, -6 -16, 0 -24"></path>
+<path d="M 0 24 C 6 16, 6 8, 0 0 C -6 8, -6 16, 0 24"></path>
+<path d="M -24 0 C -16 6, -8 6, 0 0 C -8 -6, -16 -6, -24 0"></path>
+<path d="M 24 0 C 16 6, 8 6, 0 0 C 8 -6, 16 -6, 24 0"></path>
+<path d="M -17 -17 C -10 -14, -6 -8, 0 0 C -8 -6, -14 -10, -17 -17"></path>
+<path d="M 17 17 C 10 14, 6 8, 0 0 C 8 6, 14 10, 17 17"></path>
+<path d="M 17 -17 C 14 -10, 8 -6, 0 0 C 6 -8, 10 -14, 17 -17"></path>
+<path d="M -17 17 C -14 10, -8 6, 0 0 C -6 8, -10 14, -17 17"></path>
+</g>
+<!-- 4-FOLD CEPLOK ROTATIONAL SYMMETRY (0°, 90°, 180°, 270°) -->
+<!-- Quadrant 1 (0°) -->
+<use href="#parangQuadrant"></use>
+<use href="#parangQuadrant" transform="scale(1, -1) opacity(0.35)"></use>
+<!-- Quadrant 2 (90°) -->
+<g transform="rotate(90)">
+<use href="#parangQuadrant"></use>
+<use href="#parangQuadrant" transform="scale(1, -1) opacity(0.35)"></use>
+</g>
+<!-- Quadrant 3 (180°) -->
+<g transform="rotate(180)">
+<use href="#parangQuadrant"></use>
+<use href="#parangQuadrant" transform="scale(1, -1) opacity(0.35)"></use>
+</g>
+<!-- Quadrant 4 (270°) -->
+<g transform="rotate(270)">
+<use href="#parangQuadrant"></use>
+<use href="#parangQuadrant" transform="scale(1, -1) opacity(0.35)"></use>
+</g>
+<!-- Outer Ceplok Boundary Ring -->
+<circle cx="0" cy="0" fill="none" opacity="0.6" r="280" stroke="url(#pastelRose)" stroke-dasharray="6 4" stroke-width="1.8"></circle>
+<circle cx="0" cy="0" fill="none" opacity="0.45" r="290" stroke="#bdb2ff" stroke-width="1"></circle>
+</svg>
+</div>
+<!-- FLOATING HUD 1: TOP-RIGHT VIEW CONTROLS (Pastel Frosted Glass) -->
+<div class="absolute top-4 right-4 flex items-center gap-2 z-10">
+<!-- View Mode Switcher -->
+<div class="flex items-center bg-white/85 backdrop-blur-md border border-white/80 rounded-xl p-1 shadow-sm">
+<button class="px-2.5 py-1 rounded-lg text-label-xs font-label-xs bg-pastel-coral text-on-primary-container font-semibold shadow-xs">Render View</button>
+<button class="px-2.5 py-1 rounded-lg text-label-xs font-label-xs text-on-surface-variant hover:text-on-surface transition-colors">Vector Wireframe</button>
+<button class="px-2.5 py-1 rounded-lg text-label-xs font-label-xs text-on-surface-variant hover:text-on-surface transition-colors">Symmetry Axes</button>
+</div>
+<!-- Zoom & Nav Controls -->
+<div class="flex items-center bg-white/85 backdrop-blur-md border border-white/80 rounded-xl p-1 shadow-sm text-on-surface-variant">
+<button class="p-1 hover:text-primary hover:bg-surface-container-low rounded-lg transition-colors" title="Zoom In">
+<span class="material-symbols-outlined text-[18px]" data-icon="zoom_in">zoom_in</span>
+</button>
+<button class="p-1 hover:text-primary hover:bg-surface-container-low rounded-lg transition-colors" title="Zoom Out">
+<span class="material-symbols-outlined text-[18px]" data-icon="zoom_out">zoom_out</span>
+</button>
+<div class="h-3 w-px bg-outline-variant mx-0.5"></div>
+<button class="px-1.5 py-0.5 text-label-xs font-label-xs text-charcoal font-semibold hover:text-primary rounded-md" title="Reset Zoom">100%</button>
+<div class="h-3 w-px bg-outline-variant mx-0.5"></div>
+<button class="p-1 hover:text-primary hover:bg-surface-container-low rounded-lg transition-colors" title="Fit to Screen">
+<span class="material-symbols-outlined text-[18px]" data-icon="fit_screen">fit_screen</span>
+</button>
+<button class="p-1 hover:text-primary hover:bg-surface-container-low rounded-lg transition-colors" title="Pan Tool">
+<span class="material-symbols-outlined text-[18px]" data-icon="pan_tool">pan_tool</span>
+</button>
+<button class="p-1 text-pastel-coral-dark hover:bg-surface-container-low rounded-lg transition-colors" title="Toggle Grid">
+<span class="material-symbols-outlined text-[18px]" data-icon="grid_4x4">grid_4x4</span>
+</button>
+</div>
+</div>
+<!-- FLOATING HUD: ANIMATION PLAYBACK & RECURSION SCRUBBER TOOLBAR (Frosted Glass Pastel) -->
+<div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 bg-white/85 backdrop-blur-md border border-white/80 rounded-2xl px-5 py-3 shadow-md w-[580px] max-w-[92vw] transition-colors duration-200">
+<!-- Top Bar: Playback Controls, Progress Readout & Modes -->
+<div class="w-full flex items-center justify-between text-label-xs font-label-xs">
+<!-- Left: Media Playback Buttons -->
+<div class="flex items-center gap-1.5">
+<button class="p-1 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors" title="Rewind to Axiom (Seed)">
+<span class="material-symbols-outlined text-[16px]" data-icon="first_page">first_page</span>
+</button>
+<button class="p-1 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors" title="Step Backward (N-1)">
+<span class="material-symbols-outlined text-[16px]" data-icon="skip_previous">skip_previous</span>
+</button>
+<!-- Primary Play / Pause Button with Pastel Coral Glow -->
+<button class="flex items-center justify-center w-7 h-7 rounded-full bg-pastel-coral text-on-primary-container font-bold hover:bg-pastel-coral-dark hover:text-white shadow-xs active:scale-95 transition-all" title="Play Fractal Animation">
+<span class="material-symbols-outlined text-[18px] leading-none" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<button class="p-1 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg transition-colors" title="Step Forward (N+1)">
+<span class="material-symbols-outlined text-[16px]" data-icon="skip_next">skip_next</span>
+</button>
+<button class="p-1 text-primary hover:bg-surface-container-low rounded-lg transition-colors" title="Loop Animation">
+<span class="material-symbols-outlined text-[16px]" data-icon="repeat">repeat</span>
+</button>
+<div class="h-3 w-px bg-outline-variant mx-0.5"></div>
+<span class="font-code-sm text-charcoal font-bold tracking-wide ml-0.5">N = 4 / 6</span>
+<span class="text-outline font-code-sm">(Step 4 of 6)</span>
+</div>
+<!-- Right: Speed Selector & Render Mode Toggle -->
+<div class="flex items-center gap-2">
+<!-- Speed Toggle Pill -->
+<div class="flex items-center bg-surface-container-low rounded-lg border border-outline-variant px-1 py-0.5 gap-1 font-code-sm text-outline">
+<span class="text-outline/80 text-[9px] font-semibold">SPEED:</span>
+<button class="px-1 rounded text-on-surface-variant hover:text-on-surface">0.5x</button>
+<button class="px-1.5 rounded-md bg-pastel-coral/30 text-charcoal font-bold border border-pastel-coral/60">1.0x</button>
+<button class="px-1 rounded text-on-surface-variant hover:text-on-surface">2.0x</button>
+</div>
+<div class="h-3 w-px bg-outline-variant"></div>
+<!-- Growth Mode Toggle -->
+<div class="flex items-center gap-1 bg-surface-container-low rounded-lg border border-outline-variant px-2 py-0.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="gesture">gesture</span>
+<span class="text-[10px] text-charcoal font-semibold">Turtle Canting</span>
+<span class="material-symbols-outlined text-[12px] text-outline" data-icon="unfold_more">unfold_more</span>
+</div>
+</div>
+</div>
+<!-- Bottom: Keyframed Scrubber Track & Step Markers -->
+<div class="w-full flex flex-col gap-1 pt-0.5">
+<div class="relative flex items-center w-full h-4 group cursor-pointer">
+<!-- Background Rail -->
+<div class="absolute w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<!-- Filled Progress Bar with Pastel Peach to Coral Gradient -->
+<div class="h-full bg-gradient-to-r from-pastel-peach via-pastel-coral to-pastel-coral rounded-full" style="width: 66.6%;"></div>
+</div>
+<!-- Interactive Keyframe Pins / Step Nodes -->
+<div class="absolute w-full flex justify-between px-0.5 pointer-events-none">
+<span class="w-2 h-2 rounded-full bg-pastel-coral border border-white shadow-xs" title="N=0 Axiom Seed"></span>
+<span class="w-2 h-2 rounded-full bg-pastel-coral border border-white shadow-xs" title="N=1 Primary Stems"></span>
+<span class="w-2 h-2 rounded-full bg-pastel-coral border border-white shadow-xs" title="N=2 Secondary Quadrants"></span>
+<span class="w-2 h-2 rounded-full bg-pastel-coral border border-white shadow-xs" title="N=3 Ceplok Filaments"></span>
+<span class="w-2 h-2 rounded-full bg-pastel-coral ring-2 ring-pastel-coral/40 border border-white shadow-xs" title="N=4 Full Parang Rusak"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-highest border border-outline-variant" title="N=5 High Density"></span>
+<span class="w-2 h-2 rounded-full bg-surface-container-highest border border-outline-variant" title="N=6 Deep Fractal"></span>
+</div>
+<!-- Playhead Scrubber Handle (Thumb) -->
+<div class="absolute -translate-x-1/2 flex items-center justify-center pointer-events-none z-10 transition-transform group-hover:scale-110" style="left: 66.6%;">
+<div class="w-4 h-4 rounded-full bg-pastel-coral border-2 border-white shadow-sm flex items-center justify-center">
+<div class="w-1.5 h-1.5 rounded-full bg-white"></div>
+</div>
+</div>
+</div>
+<!-- Keyframe Labels & Iteration Step Milestones -->
+<div class="w-full flex justify-between text-[9px] font-code-sm text-outline px-0.5 select-none font-medium">
+<span class="text-charcoal font-semibold">0: Axiom</span>
+<span>1: Stems</span>
+<span>2: Branch</span>
+<span>3: Motifs</span>
+<span class="text-pastel-coral-dark font-bold text-center">4: Ceplok (Active)</span>
+<span class="text-outline/50">5: Micro</span>
+<span class="text-outline/50">6: Dense</span>
+</div>
+</div>
+</div>
+<!-- FLOATING HUD 2: BOTTOM-LEFT PRESET METRIC / QUICK INFO -->
+<div class="absolute bottom-4 left-4 z-10 hidden sm:flex items-center gap-2 bg-white/85 backdrop-blur-md border border-white/80 rounded-xl px-3.5 py-2 shadow-sm transition-colors duration-200">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-pastel-coral-dark text-[16px]" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-body-sm font-body-sm font-semibold text-charcoal">Active Motif: Parang Rusak Ceplok</span>
+</div>
+<div class="h-3 w-px bg-outline-variant mx-1"></div>
+<span class="text-label-xs font-label-xs text-outline font-code-sm">Rot: 4 × 90° | Angle: 60.0°</span>
+</div>
+<!-- FLOATING HUD 3: BOTTOM-RIGHT FRACTAL ENGINE DIAGNOSTICS CARD -->
+<div class="absolute bottom-4 right-4 z-10 w-80 bg-white/85 backdrop-blur-md border border-white/80 rounded-2xl p-3.5 shadow-sm flex flex-col gap-2.5 transition-colors duration-200">
+<!-- Card Header -->
+<div class="flex items-center justify-between border-b border-outline-variant pb-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-pastel-coral-dark text-[16px]" data-icon="memory">memory</span>
+<span class="text-label-md font-label-md text-charcoal font-bold">Fractal Engine Diagnostics</span>
+</div>
+<span class="text-label-xs font-label-xs px-2 py-0.5 rounded-full bg-pastel-sage/50 text-tertiary border border-pastel-sage font-bold">Live</span>
+</div>
+<!-- Metrics Grid -->
+<div class="grid grid-cols-2 gap-2 text-label-xs font-label-xs">
+<div class="flex flex-col bg-surface-container-low/60 p-2 rounded-lg border border-outline-variant">
+<span class="text-outline font-medium">ITERATION</span>
+<span class="text-charcoal font-code-sm font-bold">Depth 4 (N=4)</span>
+</div>
+<div class="flex flex-col bg-surface-container-low/60 p-2 rounded-lg border border-outline-variant">
+<span class="text-outline font-medium">SEGMENTS</span>
+<span class="text-pastel-coral-dark font-code-sm font-bold">32,768 lines</span>
+</div>
+<div class="flex flex-col bg-surface-container-low/60 p-2 rounded-lg border border-outline-variant">
+<span class="text-outline font-medium">BOUNDING BOX</span>
+<span class="text-charcoal font-code-sm font-medium">2400 × 2400 px</span>
+</div>
+<div class="flex flex-col bg-surface-container-low/60 p-2 rounded-lg border border-outline-variant">
+<span class="text-outline font-medium">RENDER TIME</span>
+<span class="text-tertiary font-code-sm font-bold">14.2 ms</span>
+</div>
+<div class="flex flex-col bg-surface-container-low/60 p-2 rounded-lg border border-outline-variant">
+<span class="text-outline font-medium">MEMORY ALLOC</span>
+<span class="text-charcoal font-code-sm font-medium">1.8 MB VRAM</span>
+</div>
+<div class="flex flex-col bg-surface-container-low/60 p-2 rounded-lg border border-outline-variant">
+<span class="text-outline font-medium">SYMMETRY</span>
+<span class="text-secondary font-code-sm font-bold">D4 Dihedral</span>
+</div>
+</div>
+<!-- GPU Acceleration Footnote -->
+<div class="flex items-center justify-between pt-1 text-label-xs font-label-xs text-outline border-t border-outline-variant">
+<span class="flex items-center gap-1.5 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-pastel-mint"></span>
+            GPU Accelerated • Canvas WebGL
+          </span>
+<span class="text-pastel-coral-dark font-semibold hover:underline cursor-pointer">Telemetry</span>
+</div>
+</div>
+</main>
+</div>
+<!-- Micro-interactions Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const inputs = document.querySelectorAll('input[type="range"]');
+      inputs.forEach(input => {
+        input.addEventListener('input', () => {});
+      });
+
+      // Quick feedback for interactive elements
+      const themeBtn = document.getElementById('theme-toggle-btn');
+      themeBtn.addEventListener('click', () => {
+        // Toggle playful pastel sparkle
+        themeBtn.classList.add('scale-95');
+        setTimeout(() => themeBtn.classList.remove('scale-95'), 150);
+      });
+    });
+</script>
+</body></html>

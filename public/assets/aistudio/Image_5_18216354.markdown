@@ -1,0 +1,231 @@
+---
+name: Porcelain Algorhythm
+colors:
+  surface: '#fdf9f3'
+  surface-dim: '#dddad4'
+  surface-bright: '#fdf9f3'
+  surface-container-lowest: '#ffffff'
+  surface-container-low: '#f7f3ed'
+  surface-container: '#f1ede7'
+  surface-container-high: '#ebe8e2'
+  surface-container-highest: '#e6e2dc'
+  on-surface: '#1c1c18'
+  on-surface-variant: '#524340'
+  inverse-surface: '#31302d'
+  inverse-on-surface: '#f4f0ea'
+  outline: '#85736f'
+  outline-variant: '#d7c2bd'
+  surface-tint: '#894f42'
+  primary: '#894f42'
+  on-primary: '#ffffff'
+  primary-container: '#f8ad9d'
+  on-primary-container: '#753f33'
+  inverse-primary: '#ffb4a4'
+  secondary: '#70518d'
+  on-secondary: '#ffffff'
+  secondary-container: '#dfbbff'
+  on-secondary-container: '#654782'
+  tertiary: '#3e6750'
+  on-tertiary: '#ffffff'
+  tertiary-container: '#9ecaae'
+  on-tertiary-container: '#2d5640'
+  error: '#ba1a1a'
+  on-error: '#ffffff'
+  error-container: '#ffdad6'
+  on-error-container: '#93000a'
+  primary-fixed: '#ffdad3'
+  primary-fixed-dim: '#ffb4a4'
+  on-primary-fixed: '#370e06'
+  on-primary-fixed-variant: '#6d382d'
+  secondary-fixed: '#f0dbff'
+  secondary-fixed-dim: '#dcb8fc'
+  on-secondary-fixed: '#290a45'
+  on-secondary-fixed-variant: '#573974'
+  tertiary-fixed: '#c0edd0'
+  tertiary-fixed-dim: '#a4d1b4'
+  on-tertiary-fixed: '#002112'
+  on-tertiary-fixed-variant: '#264f39'
+  background: '#fdf9f3'
+  on-background: '#1c1c18'
+  surface-variant: '#e6e2dc'
+typography:
+  display-lg:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 48px
+    fontWeight: '700'
+    lineHeight: 56px
+    letterSpacing: -0.02em
+  display-lg-mobile:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 32px
+    fontWeight: '700'
+    lineHeight: 40px
+    letterSpacing: -0.01em
+  headline-lg:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 28px
+    fontWeight: '600'
+    lineHeight: 36px
+    letterSpacing: -0.01em
+  headline-md:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 22px
+    fontWeight: '600'
+    lineHeight: 30px
+    letterSpacing: -0.005em
+  headline-sm:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 18px
+    fontWeight: '600'
+    lineHeight: 24px
+  body-lg:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 16px
+    fontWeight: '400'
+    lineHeight: 24px
+  body-md:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 14px
+    fontWeight: '400'
+    lineHeight: 20px
+  body-sm:
+    fontFamily: Plus Jakarta Sans
+    fontSize: 12px
+    fontWeight: '400'
+    lineHeight: 16px
+  label-code-lg:
+    fontFamily: JetBrains Mono
+    fontSize: 14px
+    fontWeight: '500'
+    lineHeight: 20px
+  label-code-md:
+    fontFamily: JetBrains Mono
+    fontSize: 12px
+    fontWeight: '500'
+    lineHeight: 16px
+    letterSpacing: 0.02em
+  label-code-sm:
+    fontFamily: JetBrains Mono
+    fontSize: 10px
+    fontWeight: '500'
+    lineHeight: 14px
+    letterSpacing: 0.04em
+rounded:
+  sm: 0.25rem
+  DEFAULT: 0.5rem
+  md: 0.75rem
+  lg: 1rem
+  xl: 1.5rem
+  full: 9999px
+spacing:
+  gutter: 1rem
+  gutter-lg: 1.5rem
+  margin: 1rem
+  margin-md: 1.5rem
+  margin-lg: 2rem
+  space-xs: 0.25rem
+  space-sm: 0.5rem
+  space-md: 1rem
+  space-lg: 1.5rem
+  space-xl: 2.5rem
+---
+
+## Brand & Style
+
+This design system embodies the intersection of complex generative mathematics and artisanal textile heritage. The visual narrative balances precision algorithmic calculation with tactile, organic warmth. Designed for creative technologists, generative artists, surface pattern designers, and mathematical hobbyists, the experience rejects the cold, sterile tropes of legacy CAD and creative coding environments.
+
+The aesthetic fuses **Tactile Warm Minimalism** with delicate **Glassmorphic Surface Layering**:
+- Porcelain and cream foundations eliminate digital glare while honoring unbleached fiber and primed canvas.
+- Soft pastel chromatic spectrums distinguish algorithmic parameters, node pipelines, and procedural iterations without cognitive fatigue.
+- High-legibility espresso and slate ink tones anchor mathematical telemetry, equations, and control layers.
+- The interface evokes deliberate craft, tranquil focus, and creative discovery.
+
+## Colors
+
+Color functions as both a creative medium and structural signifier within the procedural environment:
+
+- **Primary (`#F8AD9D` / `#FFB5A7` - Warm Apricot & Soft Peach):** Dedicated to primary action vectors, active procedural generation states, key node connections, and cursor anchor coordinates.
+- **Secondary (`#D8B4F8` - Pastel Lavender):** Drives algebraic transformations, mathematical variables, loop arrays, and harmonic curve representations.
+- **Tertiary (`#B7E4C7` - Gentle Sage Mint):** Dictates topology nodes, geometry compilation states, symmetrical reflections, and valid status triggers.
+- **Quaternary Accent (`#A2D2FF` - Baby Sky Blue):** Highlights viewport projection controls, camera coordinates, canvas zoom heuristics, and floating parametric palettes.
+- **Neutral Foundations (`#FDFBF7` Canvas, `#FAF6F0` Base Surface, `#F3ECE2` Panel Container):** Multi-layered porcelain substrates create subtle structural separation without harsh borders.
+- **Typographic Ink (`#2D3142` Deep Slate Ink, `#3D405B` Muted Espresso):** High-contrast, warm pigment values deliver WCAG AAA compliance on all cream and pastel backgrounds.
+
+## Typography
+
+The typographic system reconciles humanistic warmth with mathematical rigor:
+
+- **Interface & Display (Plus Jakarta Sans):** Selected for its clear geometry, open counters, and subtle organic terminals. It keeps heavy computational tools approachable and reduces reading fatigue across complex parameter menus.
+- **Telemetry & Formulae (JetBrains Mono):** Applied to matrix coordinate tables, formula inputs, vector data, and parameter adjustments. Its monospaced metrics ensure numerical alignment during rapid real-time algorithmic recalculations.
+- Line heights use generous proportional steps to allow visual breathing room within compact utility panels.
+
+## Layout & Spacing
+
+The workspace uses a fluid hybrid viewport model designed for infinite canvas generation flanked by floating, dockable tool arrays:
+
+- **Screen Breakpoints:**
+  - Compact (Mobile/Handheld Viewport): `< 768px`. Utility docks convert to bottom pull-sheets; generative canvas locks to single-touch transformation mode. Outer margin: `1rem`.
+  - Medium (Tablet/Studio Display): `768px - 1199px`. Collapsible dual-column inspector; grid gutters set to `1rem`. Outer margin: `1.5rem`.
+  - Expanded (Desktop/Workstation): `≥ 1200px`. Multi-pane fixed docking; 16-column flexible math workspace; persistent telemetry panels with `1.5rem` gutters and `2rem` outer margins.
+- **Rhythm & Grid Rules:**
+  - Component internals strictly follow the `4px` sub-rhythm and `8px` major structural rhythm (`space-xs` through `space-xl`).
+  - Parameter controls inside node trees align strictly along `space-sm` increments to maximize vertical density while preserving touch/pointer tap targets.
+
+## Elevation & Depth
+
+Visual hierarchy uses translucent porcelain layering, diffuse pastel ambient shadows, and soft ambient illumination:
+
+- **Surface Tiers:**
+  - **Level 0 (Infinite Canvas Ground):** Flat `#FDFBF7`. Raw workspace holding procedural strokes and vector geometries.
+  - **Level 1 (Docked Structural Rail & Workbench):** `#FAF6F0` with a subtle inner edge border of 1px solid `rgba(45, 49, 66, 0.04)`.
+  - **Level 2 (Floating Parameter Nodes & Tool Palettes):** `rgba(250, 246, 240, 0.85)` with `16px` backdrop-filter blur, supported by an ambient shadow: `0 8px 32px -4px rgba(45, 49, 66, 0.06), 0 2px 8px -2px rgba(45, 49, 66, 0.04)`.
+  - **Level 3 (Modal Dialogs, Generative Overlays, Flyouts):** `rgba(253, 251, 247, 0.95)` with `24px` backdrop blur and deep ambient shadow: `0 20px 48px -8px rgba(45, 49, 66, 0.08), 0 4px 12px -2px rgba(45, 49, 66, 0.04)`.
+- **Canvas Fractal Bloom:** Active procedural vectors emit diffuse glow shadows using their respective accent tokens (e.g., Apricot Bloom: `0 0 16px rgba(248, 173, 157, 0.45)`, Lavender Bloom: `0 0 16px rgba(216, 180, 248, 0.45)`).
+- **Outlines:** Never use solid dark strokes for structural boundaries. All outlines are defined as `1px solid rgba(45, 49, 66, 0.06)` or tinted accent borders at `20%` opacity.
+
+## Shapes
+
+The geometric vocabulary balances smooth curved boundaries with structured internal content:
+
+- Corner radii follow the **Rounded (Level 2)** scale:
+  - Base UI elements (inputs, tool chips, math parameter rows): `0.5rem` (`8px`).
+  - Cards, node containers, floating viewport controls: `1rem` (`16px`).
+  - Primary application shells, preset preview windows, flyout sheets: `1.5rem` (`24px`).
+  - Status badges, mathematical tag chips, scrub handles: Fully circular/capsule geometry (`9999px`).
+- Form elements and interactive targets avoid sharp 90-degree corners to echo the organic flow of hand-drawn wax-resist lines and procedural spline curves.
+
+## Components
+
+### Buttons
+- **Primary Action (Generate / Compile):** Solid `#F8AD9D` background, `#2D3142` typography, semibold `14px`. Hover brings a warm luminance shift to `#FFB5A7` with a peach ambient shadow (`0 6px 20px rgba(248, 173, 157, 0.35)`). Active state applies a subtle scale transform (`0.98`).
+- **Secondary (Parameter Action / Branch):** `#FAF6F0` background with `1px solid rgba(45, 49, 66, 0.08)`, `#3D405B` text. Hover transitions to `rgba(216, 180, 248, 0.15)` tinted fill and `#D8B4F8` border stroke.
+- **Tertiary / Ghost Tool:** Transparent background, `#3D405B` text. Hover fills with `rgba(45, 49, 66, 0.04)`.
+
+### Chips & Badges
+- **Algorithm State Badges:** Pill-shaped (`rounded-full`), padded `4px 10px`. JetBrains Mono `10px` uppercase.
+  - Variable Nodes: Lavender tint (`rgba(216, 180, 248, 0.25)` fill, `#2D3142` label).
+  - Symmetry / Geometry: Mint tint (`rgba(183, 228, 199, 0.3)` fill, `#2D3142` label).
+  - Canvas Projections: Sky blue tint (`rgba(162, 210, 255, 0.25)` fill, `#2D3142` label).
+
+### Lists & Parameter Trees
+- Embedded in `#FAF6F0` containers with `8px` vertical spacing.
+- Tree hierarchy lines rendered with delicate `1px` dashed `rgba(45, 49, 66, 0.12)`.
+- Hovering an item reveals an apricot highlight pip (`4px` vertical bar on the left edge).
+
+### Checkboxes, Toggles & Radio Buttons
+- **Checkboxes:** `18px` rounded squares (`rounded-sm`). Unchecked: `#FAF6F0` with `1.5px solid rgba(45, 49, 66, 0.2)`. Checked: `#F8AD9D` with `#2D3142` checkmark icon.
+- **Toggles (Algorithmic Switches):** `40px x 22px` pill track. Off: `#F3ECE2`. On: `#B7E4C7`. Thumb is a `#FFFFFF` circle (`18px`) that glides with ease-out cubic motion, accompanied by a soft drop shadow.
+
+### Input Fields & Numeric Scrubber Fields
+- Surfaces use `#FDFBF7` with `1px solid rgba(45, 49, 66, 0.08)`. Height: `36px`. JetBrains Mono for all numeric values.
+- Focus state: `1px solid #D8B4F8` with a soft lavender outer bloom (`0 0 0 3px rgba(216, 180, 248, 0.25)`).
+- Drag-scrub numeric labels show dynamic left-to-right fill meters in soft sky blue (`#A2D2FF`).
+
+### Node Cards & Floating Inspectors
+- Constructed with `#FAF6F0` base, `1rem` corner rounding, and `1px solid rgba(45, 49, 66, 0.06)`.
+- Header bar features a soft pastel gradient border or color-coded coordinate indicator reflecting the node's functional mathematical family.
+- Content padding is locked to `space-md` (`1rem`).
+
+### Specialized Domain Component: Fractal Canvas Overlay HUD
+- Floating canvas controller anchored to the bottom-center.
+- Constructed with `rgba(253, 251, 247, 0.85)` glass backdrop, housing segmented zoom/pan dials, iteration counters, and live frame-rate telemetry in `#3D405B`.

@@ -1,0 +1,6 @@
+{
+  "name": "BatikMath - Parametric Fractal & Batik Studio",
+  "description": "Parametric fractal and traditional Javanese batik pattern generator combining L-system algorithmic grammar, canting wax simulation, and rotational dihedral symmetry matrices.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
